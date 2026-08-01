@@ -927,6 +927,28 @@ html.js [data-reveal].is-visible {
 }
 
 @media (max-width: 520px) {
+  /*
+     On true phone widths, give the navigation more breathing room without
+     stretching it across the whole glass header. The 22rem cap closely
+     matches the desktop track's established visual width, while 100% keeps
+     it safe on very narrow devices.
+  */
+  .desktop-nav {
+    width: 100%;
+  }
+
+  .segmented-nav {
+    width: min(100%, 22rem);
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
   .education-entry {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.38rem;
