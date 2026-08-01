@@ -221,10 +221,11 @@ img {
 
 .segmented-nav {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: min(100%, clamp(21.5rem, calc(18rem + 10vw), 25.5rem));
   max-width: 100%;
   align-items: center;
-  justify-content: center;
   padding: 0.24rem;
   overflow: visible;
   background: var(--glass-track);
@@ -255,9 +256,8 @@ img {
   transform: translate3d(0, 0, 0);
   transition:
     transform 250ms var(--ease-control),
-    width 210ms var(--ease-control),
     opacity 120ms ease;
-  will-change: transform, width;
+  will-change: transform;
   -webkit-backdrop-filter: blur(20px) saturate(175%);
   backdrop-filter: blur(20px) saturate(175%);
 }
@@ -270,15 +270,19 @@ img {
   position: relative;
   z-index: 1;
   display: inline-flex;
+  width: 100%;
+  min-width: 0;
   min-height: 2.05rem;
   align-items: center;
   justify-content: center;
-  padding: 0.38rem clamp(0.62rem, 1.15vw, 0.88rem);
+  padding: 0.38rem 0.12rem;
+  overflow: hidden;
   border-radius: 999px;
   color: var(--text);
   font-size: 0.96rem;
   font-weight: var(--weight-interface);
   line-height: 1.2;
+  text-align: center;
   white-space: nowrap;
   transition: color 150ms ease, transform 220ms var(--ease-glass);
 }
@@ -811,42 +815,23 @@ html.js [data-reveal].is-visible {
 
   .segmented-nav {
     /*
-       The desktop track is about 22rem wide. This formula meets that width at
-       760px and then contracts continuously as the viewport narrows, so there
-       is no breakpoint jump or sudden full-width expansion.
+       Five equal grid cells keep the glass selector identical at every stop.
+       The track contracts continuously with the viewport and never jumps to
+       full width at a breakpoint.
     */
-    width: min(
-      100%,
-      clamp(20.5rem, calc(19.625rem + 5vw), 22rem)
-    );
+    width: min(100%, clamp(21.5rem, calc(18rem + 10vw), 25.5rem));
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 0.42rem;
-    padding-left: 0.42rem;
-    justify-content: space-between;
-    gap: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-padding-inline: 0.55rem;
-  }
-
-  .segmented-nav::-webkit-scrollbar {
-    display: none;
+    padding: 0.24rem;
+    overflow: visible;
   }
 
   .nav-link {
-    /*
-       Preserve the confirmed type size and control height. The links remain
-       content-sized while the track distributes the remaining space evenly.
-    */
-    flex: 0 0 auto;
-    min-width: max-content;
-    padding-right: clamp(0.34rem, calc(0.23rem + 0.55vw), 0.5rem);
-    padding-left: clamp(0.34rem, calc(0.23rem + 0.55vw), 0.5rem);
+    width: 100%;
+    min-width: 0;
+    padding-right: 0.08rem;
+    padding-left: 0.08rem;
   }
 
   .site-content {
@@ -953,7 +938,7 @@ html.js [data-reveal].is-visible {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 680px) {
   .nav-link[data-section-link="biography"] .nav-label-full {
     display: none;
   }
@@ -972,6 +957,15 @@ html.js [data-reveal].is-visible {
   .education-date {
     align-self: start;
     justify-self: end;
+  }
+}
+
+@media (max-width: 340px) {
+  .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 0.92rem;
+    letter-spacing: -0.018em;
   }
 }
 
@@ -1019,8 +1013,8 @@ html.js [data-reveal].is-visible {
   }
 
   .nav-link {
-    padding-right: 0.3rem;
-    padding-left: 0.3rem;
+    padding-right: 0.02rem;
+    padding-left: 0.02rem;
   }
 
 }
@@ -1037,8 +1031,8 @@ html.js [data-reveal].is-visible {
   }
 
   .nav-link {
-    padding-right: 0.22rem;
-    padding-left: 0.22rem;
+    padding-right: 0;
+    padding-left: 0;
   }
 
 }
