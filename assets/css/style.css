@@ -283,6 +283,14 @@ img {
   transition: color 150ms ease, transform 220ms var(--ease-glass);
 }
 
+.nav-label {
+  display: inline-block;
+}
+
+.nav-label-short {
+  display: none;
+}
+
 .nav-link:hover,
 .nav-link:focus-visible {
   color: #050607;
@@ -791,8 +799,8 @@ html.js [data-reveal].is-visible {
   }
 
   .desktop-nav-row {
-    padding-right: 0.35rem;
-    padding-left: 0.35rem;
+    padding-right: 0.45rem;
+    padding-left: 0.45rem;
   }
 
   .desktop-nav {
@@ -803,20 +811,19 @@ html.js [data-reveal].is-visible {
 
   .segmented-nav {
     /*
-       Continuous responsive width—no sudden breakpoint jump.
-
-       At 760px this resolves to the established desktop width (22rem).
-       As the viewport narrows, it grows gently to a 23rem cap, giving phone
-       labels more breathing room. On smaller screens, min(100%, ...) lets the
-       track contract safely inside the header.
+       The desktop track is about 22rem wide. This formula meets that width at
+       760px and then contracts continuously as the viewport narrows, so there
+       is no breakpoint jump or sudden full-width expansion.
     */
     width: min(
       100%,
-      clamp(22rem, calc(24.375rem - 5vw), 23rem)
+      clamp(20.5rem, calc(19.625rem + 5vw), 22rem)
     );
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
+    padding-right: 0.42rem;
+    padding-left: 0.42rem;
     justify-content: space-between;
     gap: 0;
     overflow-x: auto;
@@ -824,8 +831,7 @@ html.js [data-reveal].is-visible {
     overscroll-behavior-inline: contain;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    scroll-padding-inline: 0.3rem;
-    scroll-snap-type: inline proximity;
+    scroll-padding-inline: 0.55rem;
   }
 
   .segmented-nav::-webkit-scrollbar {
@@ -834,15 +840,13 @@ html.js [data-reveal].is-visible {
 
   .nav-link {
     /*
-       Keep the established type size and height. Labels remain content-sized;
-       free width becomes elegant spacing between items rather than stretched
-       buttons. Extremely narrow or zoomed layouts can scroll horizontally.
+       Preserve the confirmed type size and control height. The links remain
+       content-sized while the track distributes the remaining space evenly.
     */
     flex: 0 0 auto;
     min-width: max-content;
-    padding-right: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
-    padding-left: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
-    scroll-snap-align: center;
+    padding-right: clamp(0.34rem, calc(0.23rem + 0.55vw), 0.5rem);
+    padding-left: clamp(0.34rem, calc(0.23rem + 0.55vw), 0.5rem);
   }
 
   .site-content {
@@ -949,6 +953,16 @@ html.js [data-reveal].is-visible {
   }
 }
 
+@media (max-width: 560px) {
+  .nav-link[data-section-link="biography"] .nav-label-full {
+    display: none;
+  }
+
+  .nav-link[data-section-link="biography"] .nav-label-short {
+    display: inline-block;
+  }
+}
+
 @media (max-width: 520px) {
   .education-entry {
     grid-template-columns: minmax(0, 1fr);
@@ -995,16 +1009,36 @@ html.js [data-reveal].is-visible {
   }
 
   .desktop-nav-row {
-    padding-right: 0.2rem;
-    padding-left: 0.2rem;
+    padding-right: 0.28rem;
+    padding-left: 0.28rem;
+  }
+
+  .segmented-nav {
+    padding-right: 0.34rem;
+    padding-left: 0.34rem;
+  }
+
+  .nav-link {
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
   }
 
 }
 
 @media (max-width: 330px) {
   .desktop-nav-row {
-    padding-right: 0.12rem;
-    padding-left: 0.12rem;
+    padding-right: 0.16rem;
+    padding-left: 0.16rem;
+  }
+
+  .segmented-nav {
+    padding-right: 0.28rem;
+    padding-left: 0.28rem;
+  }
+
+  .nav-link {
+    padding-right: 0.22rem;
+    padding-left: 0.22rem;
   }
 
 }
