@@ -1064,3 +1064,30 @@ html.js [data-reveal].is-visible {
     transform: none;
   }
 }
+
+@media (max-width: 560px) {
+  /*
+   * 手机端尽量利用顶栏宽度，但仍保留外侧呼吸空间。
+   */
+  .site-header {
+    width: calc(100% - 0.5rem);
+  }
+
+  .desktop-nav-row {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+  }
+
+  .segmented-nav {
+    width: calc(100% - 0.35rem);
+    max-width: 23.75rem;
+
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.94rem;
+    letter-spacing: -0.006em;
+  }
+}
