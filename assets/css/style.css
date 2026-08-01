@@ -797,23 +797,29 @@ html.js [data-reveal].is-visible {
 
   .desktop-nav,
   .segmented-nav {
-    width: 100%;
+    /*
+       Keep the navigation track content-sized while there is enough room.
+       max-width prevents overflow on genuinely narrow viewports without
+       forcing a sudden jump to the full header width.
+    */
+    width: fit-content;
+    max-width: 100%;
   }
 
   .segmented-nav {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .nav-link {
     /*
-       Content-based flex sizing preserves the full 0.96rem type size even on
-       phones. Short labels yield space to longer labels instead of forcing
-       every segment into an equal-width column.
+       Preserve the established type size and height. The segments stay at
+       their natural content width; only horizontal breathing room tightens
+       gradually as the viewport narrows.
     */
-    flex: 1 1 auto;
-    min-width: 0;
-    padding-right: clamp(0.16rem, 1.25vw, 0.52rem);
-    padding-left: clamp(0.16rem, 1.25vw, 0.52rem);
+    flex: 0 0 auto;
+    min-width: auto;
+    padding-right: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
+    padding-left: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
   }
 
   .site-content {
@@ -970,12 +976,6 @@ html.js [data-reveal].is-visible {
     padding-left: 0.2rem;
   }
 
-  .nav-link {
-    /* Preserve full typography; only reduce horizontal breathing room. */
-    padding-right: 0.08rem;
-    padding-left: 0.08rem;
-    letter-spacing: -0.012em;
-  }
 }
 
 @media (max-width: 330px) {
@@ -984,16 +984,6 @@ html.js [data-reveal].is-visible {
     padding-left: 0.12rem;
   }
 
-  .segmented-nav {
-    padding-right: 0.18rem;
-    padding-left: 0.18rem;
-  }
-
-  .nav-link {
-    padding-right: 0.03rem;
-    padding-left: 0.03rem;
-    letter-spacing: -0.018em;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
