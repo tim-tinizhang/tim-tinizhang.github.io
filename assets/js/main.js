@@ -2,22 +2,19 @@
   "use strict";
 
   const header = document.querySelector("[data-glass-header]");
-  const mobileTrigger = document.querySelector("[data-mobile-menu-trigger]");
-  const mobileMenu = document.querySelector("[data-mobile-menu]");
   const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
   const scrollLinks = [...document.querySelectorAll("[data-scroll-link]")];
   const sections = [...document.querySelectorAll("[data-site-section]")];
   const segmentedNav = document.querySelector("[data-segmented-nav]");
   const indicator = document.querySelector("[data-segmented-indicator]");
-  const desktopSectionLinks = [...document.querySelectorAll(".desktop-nav [data-section-link]")];
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const navSectionLinks = [...document.querySelectorAll(".desktop-nav [data-section-link]")];
   const abstractToggles = [...document.querySelectorAll("[data-abstract-toggle]")];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   let activeSection = "home";
   let pendingSection = null;
-  let menuCloseTimer = null;
   let scrollFrame = null;
-  let resizeFrame = null;
+  let layoutFrame = null;
   let scrollSettleTimer = null;
   let pendingSafetyTimer = null;
 
@@ -35,7 +32,7 @@
   function moveIndicator(sectionId, animate = true) {
     if (!segmentedNav || !indicator) return;
 
-    const target = desktopSectionLinks.find((link) => link.dataset.sectionLink === sectionId);
+    const target = navSectionLinks.find((link) => link.dataset.sectionLink === sectionId);
     if (!target || target.offsetParent === null) return;
 
     const navRect = segmentedNav.getBoundingClientRect();
@@ -126,79 +123,23 @@
     pendingSafetyTimer = window.setTimeout(finishPendingScroll, 1800);
   }
 
-  function positionMobileMenu() {
-    if (!header || !mobileMenu) return;
-
-    const headerRect = header.getBoundingClientRect();
-    const viewportWidth = window.visualViewport?.width || window.innerWidth;
-    const rightGap = Math.max(8, viewportWidth - headerRect.right);
-    const topGap = 8;
-
-    mobileMenu.style.setProperty("--mobile-menu-top", `${Math.round(headerRect.bottom + topGap)}px`);
-    mobileMenu.style.setProperty("--mobile-menu-right", `${Math.round(rightGap)}px`);
-  }
-
-  function openMobileMenu() {
-    if (!mobileTrigger || !mobileMenu) return;
-    if (menuCloseTimer) window.clearTimeout(menuCloseTimer);
-    positionMobileMenu();
-    mobileMenu.hidden = false;
-    mobileTrigger.setAttribute("aria-expanded", "true");
-    requestAnimationFrame(() => mobileMenu.classList.add("is-open"));
-  }
-
-  function closeMobileMenu({ immediate = false } = {}) {
-    if (!mobileTrigger || !mobileMenu || mobileMenu.hidden) return;
-
-    mobileTrigger.setAttribute("aria-expanded", "false");
-    mobileMenu.classList.remove("is-open");
-
-    if (menuCloseTimer) window.clearTimeout(menuCloseTimer);
-    if (immediate || reducedMotion.matches) {
-      mobileMenu.hidden = true;
-      return;
-    }
-
-    menuCloseTimer = window.setTimeout(() => {
-      mobileMenu.hidden = true;
-    }, 170);
-  }
-
-  mobileTrigger?.addEventListener("click", (event) => {
-    event.stopPropagation();
-    const expanded = mobileTrigger.getAttribute("aria-expanded") === "true";
-    expanded ? closeMobileMenu() : openMobileMenu();
-  });
-
-  mobileMenu?.addEventListener("click", (event) => event.stopPropagation());
-
   scrollLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       const sectionId = link.dataset.sectionLink;
       if (!sectionId) return;
       event.preventDefault();
-      closeMobileMenu();
       scrollToSection(sectionId);
     });
   });
 
-  document.addEventListener("click", () => closeMobileMenu());
-
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      const wasOpen = mobileTrigger?.getAttribute("aria-expanded") === "true";
-      closeMobileMenu({ immediate: true });
-      if (wasOpen) mobileTrigger?.focus();
-      return;
-    }
-
     if (["PageDown", "PageUp", "Home", "End", "ArrowDown", "ArrowUp", " "].includes(event.key)) {
       clearPendingScroll();
     }
   });
 
   ["wheel", "touchstart", "pointerdown"].forEach((eventName) => {
-    window.addEventListener(eventName, () => clearPendingScroll(), { passive: true });
+    window.addEventListener(eventName, clearPendingScroll, { passive: true });
   });
 
   function updateActiveFromScroll() {
@@ -294,33 +235,30 @@
     header.style.setProperty("--glow-y", "0%");
   });
 
-  function handleResize() {
-    if (resizeFrame) cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(() => {
+  function refreshLayout() {
+    if (layoutFrame) cancelAnimationFrame(layoutFrame);
+    layoutFrame = requestAnimationFrame(() => {
       updateHeaderOffsetVariable();
-      positionMobileMenu();
       moveIndicator(activeSection, false);
       updateActiveFromScroll();
-      if (window.matchMedia("(min-width: 761px)").matches) {
-        closeMobileMenu({ immediate: true });
-      }
     });
   }
 
-  window.addEventListener("resize", handleResize, { passive: true });
+  window.addEventListener("resize", refreshLayout, { passive: true });
+  window.addEventListener("orientationchange", refreshLayout, { passive: true });
+  window.visualViewport?.addEventListener("resize", refreshLayout, { passive: true });
 
-  window.visualViewport?.addEventListener("resize", handleResize, { passive: true });
-  window.visualViewport?.addEventListener("scroll", handleResize, { passive: true });
+  if ("ResizeObserver" in window) {
+    const layoutObserver = new ResizeObserver(refreshLayout);
+    if (header) layoutObserver.observe(header);
+    if (segmentedNav) layoutObserver.observe(segmentedNav);
+  }
 
-  document.fonts?.ready.then(() => {
-    updateHeaderOffsetVariable();
-    moveIndicator(activeSection, false);
-  });
+  document.fonts?.ready.then(refreshLayout);
 
   setUpAbstractToggles();
   setUpReveal();
   updateHeaderOffsetVariable();
-  positionMobileMenu();
   updateActiveFromScroll();
 
   const initialSection = location.hash.replace(/^#/, "");
