@@ -11,6 +11,7 @@
   const indicator = document.querySelector("[data-segmented-indicator]");
   const desktopSectionLinks = [...document.querySelectorAll(".desktop-nav [data-section-link]")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const abstractToggles = [...document.querySelectorAll("[data-abstract-toggle]")];
 
   let activeSection = "home";
   let pendingSection = null;
@@ -230,6 +231,30 @@
     }, { passive: true });
   }
 
+  function setUpAbstractToggles() {
+    abstractToggles.forEach((button) => {
+      const panelId = button.getAttribute("aria-controls");
+      const panel = panelId ? document.getElementById(panelId) : null;
+      const card = button.closest("[data-work-card]");
+      const title = card?.querySelector(".work-title strong")?.textContent?.trim() || "this project";
+
+      if (!panel || !card) return;
+
+      function setExpanded(expanded) {
+        card.classList.toggle("is-expanded", expanded);
+        button.setAttribute("aria-expanded", String(expanded));
+        button.setAttribute("aria-label", `${expanded ? "Hide" : "Show"} abstract for ${title}`);
+        panel.setAttribute("aria-hidden", String(!expanded));
+      }
+
+      setExpanded(button.getAttribute("aria-expanded") === "true");
+
+      button.addEventListener("click", () => {
+        setExpanded(button.getAttribute("aria-expanded") !== "true");
+      });
+    });
+  }
+
   function setUpReveal() {
     const revealItems = [...document.querySelectorAll("[data-reveal]")];
     if (!revealItems.length) return;
@@ -292,6 +317,7 @@
     moveIndicator(activeSection, false);
   });
 
+  setUpAbstractToggles();
   setUpReveal();
   updateHeaderOffsetVariable();
   positionMobileMenu();
