@@ -795,31 +795,54 @@ html.js [data-reveal].is-visible {
     padding-left: 0.35rem;
   }
 
-  .desktop-nav,
-  .segmented-nav {
-    /*
-       Keep the navigation track content-sized while there is enough room.
-       max-width prevents overflow on genuinely narrow viewports without
-       forcing a sudden jump to the full header width.
-    */
-    width: fit-content;
+  .desktop-nav {
+    width: 100%;
     max-width: 100%;
+    min-width: 0;
   }
 
   .segmented-nav {
-    justify-content: center;
+    /*
+       Continuous responsive width—no sudden breakpoint jump.
+
+       At 760px this resolves to the established desktop width (22rem).
+       As the viewport narrows, it grows gently to a 23rem cap, giving phone
+       labels more breathing room. On smaller screens, min(100%, ...) lets the
+       track contract safely inside the header.
+    */
+    width: min(
+      100%,
+      clamp(22rem, calc(24.375rem - 5vw), 23rem)
+    );
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: 0.3rem;
+    scroll-snap-type: inline proximity;
+  }
+
+  .segmented-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-link {
     /*
-       Preserve the established type size and height. The segments stay at
-       their natural content width; only horizontal breathing room tightens
-       gradually as the viewport narrows.
+       Keep the established type size and height. Labels remain content-sized;
+       free width becomes elegant spacing between items rather than stretched
+       buttons. Extremely narrow or zoomed layouts can scroll horizontally.
     */
     flex: 0 0 auto;
-    min-width: auto;
+    min-width: max-content;
     padding-right: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
     padding-left: clamp(0.25rem, calc(1.35vw - 0.02rem), 0.62rem);
+    scroll-snap-align: center;
   }
 
   .site-content {
@@ -927,28 +950,6 @@ html.js [data-reveal].is-visible {
 }
 
 @media (max-width: 520px) {
-  /*
-     On true phone widths, give the navigation more breathing room without
-     stretching it across the whole glass header. The 22rem cap closely
-     matches the desktop track's established visual width, while 100% keeps
-     it safe on very narrow devices.
-  */
-  .desktop-nav {
-    width: 100%;
-  }
-
-  .segmented-nav {
-    width: min(100%, 22rem);
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: space-between;
-  }
-
-  .nav-link {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
   .education-entry {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.38rem;

@@ -35,15 +35,14 @@
     const target = navSectionLinks.find((link) => link.dataset.sectionLink === sectionId);
     if (!target || target.offsetParent === null) return;
 
-    const navRect = segmentedNav.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const x = targetRect.left - navRect.left;
+    const targetWidth = target.offsetWidth;
+    const x = target.offsetLeft;
 
     if (!animate || reducedMotion.matches) {
       indicator.style.transition = "none";
     }
 
-    indicator.style.width = `${targetRect.width}px`;
+    indicator.style.width = `${targetWidth}px`;
     indicator.style.transform = `translate3d(${x}px, 0, 0)`;
     indicator.classList.add("is-ready");
 
@@ -54,6 +53,30 @@
         });
       });
     }
+  }
+
+  function keepNavLinkVisible(sectionId, animate = true) {
+    if (!segmentedNav) return;
+
+    const target = navSectionLinks.find((link) => link.dataset.sectionLink === sectionId);
+    if (!target || target.offsetParent === null) return;
+
+    const maxScroll = Math.max(0, segmentedNav.scrollWidth - segmentedNav.clientWidth);
+    if (maxScroll <= 1) {
+      if (segmentedNav.scrollLeft !== 0) segmentedNav.scrollLeft = 0;
+      return;
+    }
+
+    const targetCenter = target.offsetLeft + target.offsetWidth / 2;
+    const desired = Math.min(
+      maxScroll,
+      Math.max(0, targetCenter - segmentedNav.clientWidth / 2)
+    );
+
+    segmentedNav.scrollTo({
+      left: desired,
+      behavior: animate && !reducedMotion.matches ? "smooth" : "auto"
+    });
   }
 
   function setActiveSection(sectionId, animate = true) {
@@ -74,6 +97,7 @@
 
     if (changed || !indicator?.classList.contains("is-ready")) {
       moveIndicator(sectionId, animate);
+      keepNavLinkVisible(sectionId, animate);
     }
   }
 
@@ -240,6 +264,7 @@
     layoutFrame = requestAnimationFrame(() => {
       updateHeaderOffsetVariable();
       moveIndicator(activeSection, false);
+      keepNavLinkVisible(activeSection, false);
       updateActiveFromScroll();
     });
   }
