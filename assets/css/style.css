@@ -213,7 +213,9 @@ img {
 
 .desktop-nav {
   display: flex;
+  width: 100%;
   max-width: 100%;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   overflow: visible;
@@ -223,10 +225,17 @@ img {
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  width: min(100%, clamp(21.5rem, calc(18rem + 10vw), 25.5rem));
+
+  /*
+     Five equal segments, with a track that grows continuously with the
+     viewport. The formula yields roughly 360px at a 390px phone viewport,
+     about 520px at 760px, and caps at 560px on wider screens. `min(100%, …)`
+     is the hard safety boundary for very narrow devices and large text.
+  */
+  width: min(100%, clamp(20.5rem, calc(12rem + 43vw), 35rem));
   max-width: 100%;
   align-items: center;
-  padding: 0.24rem;
+  padding: 0.24rem 0.38rem;
   overflow: visible;
   background: var(--glass-track);
   border: 1px solid rgba(195, 200, 205, 0.34);
@@ -815,15 +824,15 @@ html.js [data-reveal].is-visible {
 
   .segmented-nav {
     /*
-       Five equal grid cells keep the glass selector identical at every stop.
-       The track contracts continuously with the viewport and never jumps to
-       full width at a breakpoint.
+       Keep the same continuous track formula on tablets and phones. Nothing
+       switches to `width: 100%` at this breakpoint, so dragging the browser
+       width cannot produce a sudden jump in the control's length.
     */
-    width: min(100%, clamp(21.5rem, calc(18rem + 10vw), 25.5rem));
+    width: min(100%, clamp(20.5rem, calc(12rem + 43vw), 35rem));
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding: 0.24rem;
+    padding: 0.24rem 0.38rem;
     overflow: visible;
   }
 
@@ -938,7 +947,7 @@ html.js [data-reveal].is-visible {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 560px) {
   .nav-link[data-section-link="biography"] .nav-label-full {
     display: none;
   }
@@ -1008,8 +1017,8 @@ html.js [data-reveal].is-visible {
   }
 
   .segmented-nav {
-    padding-right: 0.34rem;
-    padding-left: 0.34rem;
+    padding-right: 0.32rem;
+    padding-left: 0.32rem;
   }
 
   .nav-link {
@@ -1026,8 +1035,8 @@ html.js [data-reveal].is-visible {
   }
 
   .segmented-nav {
-    padding-right: 0.28rem;
-    padding-left: 0.28rem;
+    padding-right: 0.26rem;
+    padding-left: 0.26rem;
   }
 
   .nav-link {
