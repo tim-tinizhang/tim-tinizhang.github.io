@@ -29,38 +29,14 @@
             <a class="nav-link is-active" href="#home" data-scroll-link data-section-link="home" aria-current="location">Home</a>
             <a class="nav-link" href="#research" data-scroll-link data-section-link="research">Research</a>
             <a class="nav-link" href="#biography" data-scroll-link data-section-link="biography">Biography</a>
-            <a class="nav-link" href="#paper-workshop" data-scroll-link data-section-link="paper-workshop">PAPER Workshop</a>
             <a class="nav-link" href="#contact" data-scroll-link data-section-link="contact">Contact</a>
             <a class="nav-link" href="#cv" data-scroll-link data-section-link="cv">CV</a>
           </div>
         </nav>
       </div>
     </div>
-
-    <div class="mobile-header">
-      <div class="mobile-header-inner">
-        <a class="mobile-site-name" href="#home" data-scroll-link data-section-link="home" aria-label="Return to the Home section">Tin I (Tim) Zhang</a>
-
-        <div class="mobile-actions">
-          <a class="mobile-action-button" href="#cv" data-scroll-link data-section-link="cv" aria-label="Go to the CV section">CV</a>
-          <button class="mobile-action-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" data-mobile-menu-trigger>
-            <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-          </button>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <!-- Kept outside the blurred header so its own backdrop-filter can blur page content correctly. -->
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-mobile-menu hidden>
-    <ul class="mobile-menu-list">
-      <li><a class="mobile-menu-link is-active" href="#home" data-scroll-link data-section-link="home" aria-current="location">Home</a></li>
-      <li><a class="mobile-menu-link" href="#research" data-scroll-link data-section-link="research">Research</a></li>
-      <li><a class="mobile-menu-link" href="#biography" data-scroll-link data-section-link="biography">Biography</a></li>
-      <li><a class="mobile-menu-link" href="#paper-workshop" data-scroll-link data-section-link="paper-workshop">PAPER Workshop</a></li>
-      <li><a class="mobile-menu-link" href="#contact" data-scroll-link data-section-link="contact">Contact</a></li>
-    </ul>
-  </nav>
 
   <main id="main-content" class="site-content">
     <section class="site-section home-section" id="home" data-site-section aria-label="Home">
@@ -69,9 +45,11 @@
 
         <p data-reveal style="--reveal-delay: 25ms;">I am a fourth-year undergraduate student majoring in <a href="https://gpa.fss.um.edu.mo/bach_ipa_all_2026/" target="_blank" rel="noopener noreferrer">International and Public Affairs</a> at the <a href="https://www.um.edu.mo/" target="_blank" rel="noopener noreferrer">University of Macau</a>, where I am honored to be supported by the <b>Golden Lotus Full Scholarship</b>. From 2025 to 2027, I also serve as Head of Academics of the <a href="https://gpa.fss.um.edu.mo/youth-association-for-international-affairs-yaia/" target="_blank" rel="noopener noreferrer">Youth Association of International Affairs</a>.</p>
 
-        <p data-reveal style="--reveal-delay: 50ms;">My research is situated in applied microeconomics, with particular interests in <b>Political Economy</b>, <b>Labor Economics</b>, and <b>Development Economics</b>. Specifically, I ask how production structures and distributional outcomes are shaped by forces such as the open economy, domestic institutions, and development strategies in China and East Asia, and what socioeconomic consequences have emerged during these economic transformations, especially in relation to broader issues and tensions in labor-market dynamics, human capital, information and belief formation, inequality, and social mobility, as well as the role of government policy.</p>
+        <p data-reveal style="--reveal-delay: 50ms;">My research interests center on <strong>Comparative and International Political Economy</strong>, with a regional focus on <strong>China and East Asia</strong>.</p>
 
-        <p data-reveal style="--reveal-delay: 75ms;">My academic background combines substantive training in political economy with quantitative empirical methods. Through extensive coursework and hands-on experience, I have been equipped with solid skills in research design, causal inference, R programming, computational text analysis, survey experiments, and big data processing.</p>
+        <p data-reveal style="--reveal-delay: 75ms;">In terms of academic work, I have served as a research assistant to <a href="https://jiyingjiang.com/" target="_blank" rel="noopener noreferrer">Professor Jiying Jiang</a> at the University of Macau since 2024, working on projects at the intersection of computational social science, policy process, and Chinese politics. I am also a member of the <a href="https://sites.google.com/view/paper-workshop" target="_blank" rel="noopener noreferrer">Public Affairs and Political Economy Research Workshop (PAPER)</a>, where, under the guidance of <a href="https://www.hkmu.edu.hk/ss/about/people/faculty-2/dr-li-tao/" target="_blank" rel="noopener noreferrer">Professor Tao Li</a>, I explore the frontiers of political economy and empirical methods alongside fellow researchers and conduct independent research.</p>
+
+        <p data-reveal style="--reveal-delay: 100ms;">My background combines substantive training in political economy, comparative politics, and international relations with quantitative empirical methods. Through extensive coursework and hands-on research experience, I have developed solid skills in research design, causal inference, R programming, computational text analysis, survey experiments, and large-scale data processing.</p>
       </article>
     </section>
 
@@ -80,18 +58,22 @@
 
       <section class="subsection" aria-labelledby="research-interests-title">
         <h2 class="subsection-title" id="research-interests-title" data-reveal style="--reveal-delay: 60ms;">Research Interests</h2>
-        <p class="research-interests-copy" data-reveal style="--reveal-delay: 90ms;">Comparative and International Political Economy, Political Economy of Development, Politics of Information, Public Opinion, Domestic Consequences of Globalization, etc.</p>
+        <div class="content-card research-interests-card" data-reveal style="--reveal-delay: 90ms;">
+          <div class="content-card-body">
+            <p class="research-interests-copy">Comparative and International Political Economy, Political Economy of Development, Politics of Information, Public Opinion, Domestic Consequences of Globalization, etc.</p>
+          </div>
+        </div>
       </section>
 
       <section class="subsection" aria-labelledby="works-title">
         <h2 class="subsection-title" id="works-title" data-reveal style="--reveal-delay: 120ms;">Selected Works in Progress</h2>
 
         <div class="works-list">
-          <article class="work-card" data-work-card data-reveal style="--reveal-delay: 150ms;" aria-labelledby="bill-changes-title">
+          <article class="work-card content-card" data-work-card data-reveal style="--reveal-delay: 150ms;" aria-labelledby="bill-changes-title">
             <div class="work-card-summary">
               <div class="work-card-copy">
                 <p class="work-title"><strong id="bill-changes-title">Tracking Bill Changes in China's Two-phase Lawmaking Process</strong></p>
-                <p class="work-meta">Collaborated with Jiying Jiang</p>
+                <p class="work-meta">Collaborated with <a href="https://jiyingjiang.com/" target="_blank" rel="noopener noreferrer">Jiying Jiang</a></p>
               </div>
 
               <div class="work-action">
@@ -127,7 +109,7 @@
             </div>
           </article>
 
-          <article class="work-card" data-work-card data-reveal style="--reveal-delay: 180ms;" aria-labelledby="negative-news-title">
+          <article class="work-card content-card" data-work-card data-reveal style="--reveal-delay: 180ms;" aria-labelledby="negative-news-title">
             <div class="work-card-summary">
               <div class="work-card-copy">
                 <p class="work-title"><strong id="negative-news-title">When Negative Foreign News Backfires: Economic Insecurity and Political Attitudes in China</strong></p>
@@ -175,32 +157,34 @@
 
       <section class="subsection" aria-labelledby="education-title">
         <h2 class="subsection-title" id="education-title" data-reveal>Education</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
-      </section>
 
-      <section class="subsection" aria-labelledby="experience-title">
-        <h2 class="subsection-title" id="experience-title" data-reveal>Research Experience</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
-      </section>
+        <div class="content-card education-card" data-reveal style="--reveal-delay: 70ms;">
+          <div class="education-list">
+            <article class="education-entry">
+              <div class="education-copy">
+                <p class="education-program"><strong>B.Soc.Sc. Government and Public Administration</strong></p>
+                <p class="education-institution">University of Macau</p>
+              </div>
+              <p class="education-date"><time datetime="2023-08">Aug 2023</time>–present</p>
+            </article>
 
-      <section class="subsection" aria-labelledby="leadership-title">
-        <h2 class="subsection-title" id="leadership-title" data-reveal>Leadership &amp; Academic Service</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
-      </section>
+            <article class="education-entry">
+              <div class="education-copy">
+                <p class="education-program"><strong>Summer School on Singapore, Asia and the Global Economy</strong></p>
+                <p class="education-institution">National University of Singapore</p>
+              </div>
+              <p class="education-date"><time datetime="2026-06">Jun</time>–<time datetime="2026-07">Jul 2026</time></p>
+            </article>
 
-      <section class="subsection" aria-labelledby="awards-title">
-        <h2 class="subsection-title" id="awards-title" data-reveal>Awards &amp; Honors</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
-      </section>
-
-      <section class="subsection" aria-labelledby="skills-title">
-        <h2 class="subsection-title" id="skills-title" data-reveal>Language &amp; Skills</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
-      </section>
-
-      <section class="subsection" aria-labelledby="misc-title">
-        <h2 class="subsection-title" id="misc-title" data-reveal>Miscellaneous</h2>
-        <div class="section-placeholder" aria-hidden="true"></div>
+            <article class="education-entry">
+              <div class="education-copy">
+                <p class="education-program"><strong>Summer School on Statistics and Data Analysis</strong></p>
+                <p class="education-institution">London School of Economics</p>
+              </div>
+              <p class="education-date"><time datetime="2024-06">Jun</time>–<time datetime="2024-07">Jul 2024</time></p>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="subsection" aria-labelledby="photo-title">
@@ -216,11 +200,6 @@
           data-reveal
         >
       </section>
-    </section>
-
-    <section class="site-section" id="paper-workshop" data-site-section aria-labelledby="paper-workshop-title">
-      <h1 class="section-heading" id="paper-workshop-title" data-reveal>PAPER Workshop</h1>
-      <div class="section-placeholder workshop-placeholder" aria-hidden="true"></div>
     </section>
 
     <section class="site-section" id="contact" data-site-section aria-labelledby="contact-title">

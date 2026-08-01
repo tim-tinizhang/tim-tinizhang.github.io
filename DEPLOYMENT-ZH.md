@@ -7,4 +7,4 @@
 5. 发布完成后打开 `https://tim-tinizhang.github.io`。
 6. 如浏览器仍显示旧样式，请使用 `Command + Shift + R`（Windows：`Ctrl + Shift + R`）强制刷新。
 
-当前导航和正文顺序：Home、Research、Biography、PAPER Workshop、Contact、CV。顶部 CV 按钮会滚动到 CV Section；其中的 `Download CV` 按钮才会在新标签页打开 PDF。
+当前导航和正文顺序：Home、Research、Biography、Contact、CV。顶部 CV 按钮会滚动到 CV Section；其中的 `Download CV` 按钮才会在新标签页打开 PDF。
