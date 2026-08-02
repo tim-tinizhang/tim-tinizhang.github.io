@@ -933,11 +933,11 @@ html.js [data-reveal].is-visible {
   }
 
   .contact-links {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.45rem;
-    width: 100%;
-    margin: 0;
-  }
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  width: min(100%, 31rem);
+  margin: 0;
+}
 
   .contact-button {
     min-width: 0;
