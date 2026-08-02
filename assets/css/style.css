@@ -7,7 +7,7 @@
   --link: #1267bd;
   --link-hover: #0a519a;
 
-  --font-sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-sans: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
   --weight-body: 400;
@@ -67,7 +67,17 @@ body {
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: var(--weight-body);
-  line-height: 1.55;
+  line-height: 1.57;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
 }
 
 a {
@@ -224,15 +234,14 @@ img {
 .segmented-nav {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   /*
-     Five equal segments, with a track that grows continuously with the
-     viewport. The formula yields roughly 360px at a 390px phone viewport,
-     about 520px at 760px, and caps at 560px on wider screens. `min(100%, …)`
-     is the hard safety boundary for very narrow devices and large text.
+     Four equal desktop segments. The track grows continuously with the
+     viewport, remains comfortably proportioned around the 540px boundary,
+     and caps before it becomes visually overextended on wide displays.
   */
-  width: min(100%, clamp(20.5rem, calc(12rem + 43vw), 35rem));
+  width: min(100%, clamp(22rem, calc(14rem + 34vw), 31rem));
   max-width: 100%;
   align-items: center;
   padding: 0.24rem 0.38rem;
@@ -291,6 +300,7 @@ img {
   font-size: 0.96rem;
   font-weight: var(--weight-interface);
   line-height: 1.2;
+  letter-spacing: 0;
   text-align: center;
   white-space: nowrap;
   transition: color 150ms ease, transform 220ms var(--ease-glass);
@@ -351,7 +361,7 @@ html:not(.js) .nav-link[aria-current="location"] {
   color: var(--text);
   font-size: 1rem;
   font-weight: var(--weight-body);
-  line-height: 1.58;
+  line-height: 1.6;
 }
 
 .home-introduction p {
@@ -439,6 +449,7 @@ html:not(.js) .nav-link[aria-current="location"] {
   color: var(--text);
   font-size: 0.94rem;
   font-weight: var(--weight-body);
+  line-height: 1.2;
   text-align: center;
   white-space: nowrap;
   -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -524,10 +535,6 @@ html:not(.js) .nav-link[aria-current="location"] {
 }
 
 .education-entry {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem 1.4rem;
   padding: 1.12rem 1.3rem;
 }
 
@@ -535,33 +542,46 @@ html:not(.js) .nav-link[aria-current="location"] {
   border-top: 1px solid var(--divider-soft);
 }
 
-.education-copy {
-  min-width: 0;
+.education-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.75rem 1.2rem;
 }
 
 .education-program,
 .education-institution,
-.education-date {
+.education-date,
+.education-honors {
   margin: 0;
 }
 
-.education-program strong {
+.education-institution strong {
   font-weight: 700;
 }
 
-.education-institution {
+.education-program {
   margin-top: 0.22rem;
+}
+
+.education-date,
+.education-honors {
+  color: #73777d !important;
+  font-size: 0.92rem !important;
+  font-style: normal;
+  line-height: 1.45 !important;
 }
 
 .education-date {
   justify-self: end;
-  color: #73777d !important;
-  font-size: 0.92rem !important;
-  font-style: italic;
-  line-height: 1.45 !important;
   text-align: right;
   white-space: nowrap;
 }
+
+.education-honors {
+  margin-top: 0.22rem;
+}
+
 
 .works-list {
   display: grid;
@@ -594,7 +614,7 @@ html:not(.js) .nav-link[aria-current="location"] {
   color: var(--text);
   font-size: 1rem;
   font-weight: var(--weight-body);
-  line-height: 1.48;
+  line-height: 1.5;
   overflow-wrap: anywhere;
   text-wrap: pretty;
 }
@@ -606,9 +626,9 @@ html:not(.js) .nav-link[aria-current="location"] {
 .work-meta {
   margin: 0.28rem 0 0;
   color: #696e74;
-  font-size: 0.94rem;
+  font-size: 0.93rem;
   font-weight: var(--weight-body);
-  line-height: 1.45;
+  line-height: 1.46;
 }
 
 .work-action {
@@ -637,7 +657,7 @@ html:not(.js) .nav-link[aria-current="location"] {
   color: var(--text);
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 0.86rem;
+  font-size: 0.87rem;
   font-weight: var(--weight-body);
   line-height: 1;
   -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -747,7 +767,7 @@ html.js .work-card.is-expanded .work-abstract-content {
   color: var(--text);
   font-size: 1rem;
   font-weight: var(--weight-body);
-  line-height: 1.62;
+  line-height: 1.64;
   text-wrap: pretty;
 }
 
@@ -918,10 +938,10 @@ html.js [data-reveal].is-visible {
   overflow: hidden;
   border-radius: 999px;
   color: var(--text);
-  font-size: clamp(0.86rem, calc(0.4rem + 2vw), 0.9rem);
+  font-size: clamp(0.87rem, calc(0.42rem + 1.9vw), 0.9rem);
   font-weight: var(--weight-interface);
   line-height: 1.2;
-  letter-spacing: -0.006em;
+  letter-spacing: 0;
   text-align: center;
   white-space: nowrap;
   transition: color 150ms ease, transform 220ms var(--ease-glass);
@@ -976,7 +996,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
   .subsection p,
   .subsection li {
     font-size: 0.98rem;
-    line-height: 1.58;
+    line-height: 1.6;
   }
 
   .section-heading {
@@ -1003,14 +1023,16 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
   }
 
   .education-entry {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.38rem;
     padding: 1rem;
   }
 
-  .education-date {
-    align-self: start;
-    justify-self: end;
+  .education-heading-row {
+    gap: 0.5rem;
+  }
+
+  .education-date,
+  .education-honors {
+    font-size: 0.88rem !important;
   }
 
   .work-card-summary {
@@ -1021,12 +1043,12 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
 
   .work-title {
     font-size: 0.98rem;
-    line-height: 1.46;
+    line-height: 1.48;
   }
 
   .work-meta {
     margin-top: 0.24rem;
-    font-size: 0.88rem;
+    font-size: 0.89rem;
   }
 
   .work-action {
@@ -1038,7 +1060,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
     width: 5.35rem;
     min-height: 2.35rem;
     padding: 0.38rem 0.55rem;
-    font-size: 0.8rem;
+    font-size: 0.81rem;
   }
 
   .work-card.is-expanded .abstract-toggle {
@@ -1052,7 +1074,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
 
   .work-abstract-content p {
     font-size: 0.98rem;
-    line-height: 1.6;
+    line-height: 1.62;
   }
 
   .contact-links {
@@ -1066,7 +1088,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
     min-width: 0;
     min-height: 2.4rem;
     padding: 0.42rem 0.25rem;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
   }
 }
 
@@ -1097,7 +1119,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
   .mobile-nav-link {
     padding-right: 0.04rem;
     padding-left: 0.04rem;
-    letter-spacing: -0.012em;
+    letter-spacing: -0.004em;
   }
 
   .work-card-summary {
@@ -1116,7 +1138,7 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
     min-height: 2.25rem;
     padding-right: 0.4rem;
     padding-left: 0.4rem;
-    font-size: 0.76rem;
+    font-size: 0.78rem;
   }
 
   .work-card.is-expanded .abstract-toggle {
@@ -1126,6 +1148,18 @@ html:not(.js) .mobile-nav-link[aria-current="location"] {
   .work-abstract-content {
     margin-right: 0.9rem;
     margin-left: 0.9rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .education-heading-row {
+    gap: 0.35rem;
+  }
+
+  .education-date,
+  .education-honors {
+    font-size: 0.84rem !important;
+    letter-spacing: -0.008em;
   }
 }
 
