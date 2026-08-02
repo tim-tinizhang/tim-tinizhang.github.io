@@ -17,12 +17,21 @@
   const abstractToggles = [...document.querySelectorAll("[data-abstract-toggle]")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  const legacySectionAliases = Object.freeze({
+    contact: "links",
+    cv: "links"
+  });
+
   let activeSection = "home";
   let pendingSection = null;
   let scrollFrame = null;
   let layoutFrame = null;
   let scrollSettleTimer = null;
   let pendingSafetyTimer = null;
+
+  function normalizeSectionId(sectionId) {
+    return legacySectionAliases[sectionId] || sectionId;
+  }
 
   const navControllers = [
     {
@@ -94,6 +103,7 @@
   }
 
   function setActiveSection(sectionId, animate = true) {
+    sectionId = normalizeSectionId(sectionId);
     if (!sectionId) return;
 
     const changed = activeSection !== sectionId;
@@ -144,6 +154,7 @@
   }
 
   function scrollToSection(sectionId, updateHash = true) {
+    sectionId = normalizeSectionId(sectionId);
     const target = document.getElementById(sectionId);
     if (!target) return;
 
@@ -317,7 +328,7 @@
   updateHeaderOffsetVariable();
   updateActiveFromScroll();
 
-  const initialSection = location.hash.replace(/^#/, "");
+  const initialSection = normalizeSectionId(location.hash.replace(/^#/, ""));
   if (initialSection && document.getElementById(initialSection)) {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => scrollToSection(initialSection, false));
