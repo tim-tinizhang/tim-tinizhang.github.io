@@ -16,7 +16,7 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header class="site-header" data-glass-header data-header-mode="auto">
+<header class="site-header" data-glass-header>
   <div class="desktop-header" data-desktop-header>
     <div class="desktop-title-row">
       <a class="site-name" href="#home" data-scroll-link data-section-link="home" aria-label="Return to the Home section">Tin I (Tim) Zhang</a>
@@ -37,29 +37,23 @@
   </div>
 
   <div class="mobile-header" data-mobile-header>
-    <div class="mobile-header-row">
+    <div class="mobile-title-row">
       <a class="mobile-site-name" href="#home" data-scroll-link data-section-link="home" aria-label="Return to the Home section">Tin I (Tim) Zhang</a>
+    </div>
 
-      <div class="mobile-header-actions">
-        <a class="mobile-header-button mobile-cv-button" href="#cv" data-scroll-link data-section-link="cv" aria-label="Go to the CV section">CV</a>
-        <button class="mobile-header-button mobile-menu-button" type="button" data-mobile-menu-button aria-label="Open navigation menu" aria-controls="mobile-primary-menu" aria-expanded="false">
-          <span class="mobile-menu-button-lines" aria-hidden="true"></span>
-        </button>
-      </div>
+    <div class="mobile-nav-row">
+      <nav class="mobile-primary-nav" aria-label="Mobile primary navigation">
+        <div class="mobile-segmented-nav" data-mobile-segmented-nav>
+          <span class="mobile-segmented-indicator" data-mobile-segmented-indicator aria-hidden="true"></span>
+          <a class="mobile-nav-link is-active" href="#home" data-scroll-link data-section-link="home" aria-current="location">Home</a>
+          <a class="mobile-nav-link" href="#research" data-scroll-link data-section-link="research">Research</a>
+          <a class="mobile-nav-link" href="#biography" data-scroll-link data-section-link="biography">Bio</a>
+          <a class="mobile-nav-link" href="#contact" data-scroll-link data-section-link="contact" data-section-aliases="cv" aria-label="Contact and CV">Contact/CV</a>
+        </div>
+      </nav>
     </div>
   </div>
 </header>
-
-<div class="mobile-menu" id="mobile-primary-menu" data-mobile-menu aria-hidden="true">
-  <nav class="mobile-menu-nav" data-mobile-menu-nav aria-label="Mobile primary navigation">
-    <span class="mobile-menu-indicator" data-mobile-menu-indicator aria-hidden="true"></span>
-    <a class="mobile-menu-link is-active" href="#home" data-scroll-link data-section-link="home" aria-current="location">Home</a>
-    <a class="mobile-menu-link" href="#research" data-scroll-link data-section-link="research">Research</a>
-    <a class="mobile-menu-link" href="#biography" data-scroll-link data-section-link="biography">Biography</a>
-    <a class="mobile-menu-link" href="#contact" data-scroll-link data-section-link="contact">Contact</a>
-  </nav>
-</div>
-
 
   <main id="main-content" class="site-content">
     <section class="site-section home-section" id="home" data-site-section aria-label="Home">
