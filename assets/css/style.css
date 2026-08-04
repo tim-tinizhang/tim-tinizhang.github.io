@@ -1,5 +1,5 @@
 :root {
-  --background: #ffffff;
+  --background: #f5f6f6;
   --text: #17191b;
   --muted: #60646a;
   --divider: rgba(26, 31, 36, 0.13);
@@ -27,18 +27,19 @@
   --glass-border: rgba(188, 193, 199, 0.46);
   --glass-bright-border: rgba(255, 255, 255, 0.92);
   --glass-shadow:
-    0 18px 48px rgba(30, 35, 40, 0.12),
-    0 4px 14px rgba(30, 35, 40, 0.07),
+    0 14px 38px rgba(30, 35, 40, 0.075),
+    0 3px 10px rgba(30, 35, 40, 0.045),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(155, 163, 171, 0.12);
+    inset 0 -1px 0 rgba(155, 163, 171, 0.09);
   --glass-control-shadow:
-    0 7px 18px rgba(28, 33, 38, 0.12),
-    0 1px 4px rgba(28, 33, 38, 0.08),
+    0 5px 14px rgba(28, 33, 38, 0.085),
+    0 1px 3px rgba(28, 33, 38, 0.050),
     inset 0 1px 0 rgba(255, 255, 255, 0.98),
-    inset 0 -1px 0 rgba(150, 158, 166, 0.14);
+    inset 0 -1px 0 rgba(150, 158, 166, 0.10);
 
   --ease-glass: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-control: cubic-bezier(0.2, 0.78, 0.2, 1);
+  --ease-reveal: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 *,
@@ -425,7 +426,7 @@ html:not(.js) .nav-link[aria-current="location"] {
   object-fit: contain;
   border: 1px solid rgba(190, 195, 201, 0.42);
   border-radius: 0.55rem;
-  box-shadow: 0 8px 22px rgba(32, 39, 48, 0.10);
+  box-shadow: 0 7px 18px rgba(32, 39, 48, 0.075);
 }
 
 .contact-links {
@@ -461,8 +462,8 @@ html:not(.js) .nav-link[aria-current="location"] {
 .contact-button:focus-visible {
   transform: translateY(-1.5px);
   box-shadow:
-    0 10px 24px rgba(28, 33, 38, 0.14),
-    0 2px 6px rgba(28, 33, 38, 0.08),
+    0 8px 20px rgba(28, 33, 38, 0.10),
+    0 2px 5px rgba(28, 33, 38, 0.055),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
@@ -479,10 +480,10 @@ html:not(.js) .nav-link[aria-current="location"] {
   border: 1px solid rgba(188, 193, 199, 0.48);
   border-radius: 1.35rem;
   box-shadow:
-    0 14px 34px rgba(30, 35, 40, 0.095),
-    0 3px 10px rgba(30, 35, 40, 0.055),
+    0 11px 28px rgba(30, 35, 40, 0.065),
+    0 2px 8px rgba(30, 35, 40, 0.040),
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
-    inset 0 -1px 0 rgba(155, 163, 171, 0.10);
+    inset 0 -1px 0 rgba(155, 163, 171, 0.075);
   -webkit-backdrop-filter: blur(24px) saturate(165%);
   backdrop-filter: blur(24px) saturate(165%);
 }
@@ -672,14 +673,14 @@ html:not(.js) .nav-link[aria-current="location"] {
 .abstract-toggle:hover,
 .abstract-toggle:focus-visible {
   box-shadow:
-    0 9px 22px rgba(28, 33, 38, 0.14),
-    0 2px 5px rgba(28, 33, 38, 0.075),
+    0 7px 18px rgba(28, 33, 38, 0.10),
+    0 2px 4px rgba(28, 33, 38, 0.050),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .abstract-toggle:active {
   box-shadow:
-    0 4px 12px rgba(28, 33, 38, 0.11),
+    0 3px 10px rgba(28, 33, 38, 0.075),
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
@@ -787,10 +788,10 @@ html:not(.js) .abstract-toggle {
 -------------------------------------------------- */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(5px);
+  transform: translateY(4px);
   transition:
-    opacity 330ms ease-out,
-    transform 360ms var(--ease-control);
+    opacity 440ms var(--ease-reveal),
+    transform 500ms var(--ease-glass);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
