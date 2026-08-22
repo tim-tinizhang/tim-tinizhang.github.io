@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Tin I Zhang monogram</title>
+  <desc id="desc">A luminous white T on a deep blue glass tile.</desc>
+  <defs>
+    <linearGradient id="tile" x1="9" y1="5" x2="55" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4d91dc"/>
+      <stop offset="0.47" stop-color="#246bb9"/>
+      <stop offset="1" stop-color="#0b376f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(20 12) rotate(52) scale(45 38)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b9ddff" stop-opacity=".74"/>
+      <stop offset=".42" stop-color="#69a9ee" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#144f96" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="letter" x1="24" y1="13" x2="39" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".55" stop-color="#f5f9ff"/>
+      <stop offset="1" stop-color="#cfe3fb"/>
+    </linearGradient>
+    <filter id="tileShadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#062854" flood-opacity=".35"/>
+    </filter>
+    <filter id="letterShadow" x="-45%" y="-30%" width="190%" height="180%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#03244d" flood-opacity=".52"/>
+      <feDropShadow dx="0" dy="-0.6" stdDeviation=".45" flood-color="#ffffff" flood-opacity=".72"/>
+    </filter>
+    <clipPath id="clip"><rect x="5" y="5" width="54" height="54" rx="14"/></clipPath>
+  </defs>
+  <g filter="url(#tileShadow)">
+    <rect x="5" y="5" width="54" height="54" rx="14" fill="url(#tile)"/>
+    <g clip-path="url(#clip)">
+      <rect x="5" y="5" width="54" height="54" rx="14" fill="url(#glow)"/>
+      <ellipse cx="42" cy="54" rx="29" ry="17" fill="#061f45" opacity=".18"/>
+      <path d="M8 17C21 8 44 7 58 16" fill="none" stroke="#fff" stroke-opacity=".43" stroke-width="2.1"/>
+      <path d="M8 11C20 5 43 4 55 10" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="5" filter="blur(3px)"/>
+    </g>
+    <rect x="5.75" y="5.75" width="52.5" height="52.5" rx="13.25" fill="none" stroke="#cce8ff" stroke-opacity=".55" stroke-width="1.5"/>
+    <rect x="7" y="7" width="50" height="50" rx="12" fill="none" stroke="#fff" stroke-opacity=".16"/>
+  </g>
+  <text x="32" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="39" font-weight="700" fill="url(#letter)" filter="url(#letterShadow)">T</text>
+</svg>

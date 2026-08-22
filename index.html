@@ -6,6 +6,9 @@
   <title>Tin I (Tim) Zhang</title>
   <meta name="description" content="Academic website of Tin I (Tim) Zhang, Political Science Researcher.">
 
+  <!-- 网站 Favicon 标识 (SVG 矢量格式) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <!-- 字体预加载：Newsreader (Serif 标题) + Inter (Sans 正文) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -324,12 +327,54 @@
       margin-bottom: 0.85rem;
     }
 
-    /* 研究兴趣普通文本排版 */
-    .interests-text {
-      color: var(--text-main);
-      font-size: 0.94rem;
-      line-height: 1.68;
+    /* 研究兴趣领域卡片网格系统 */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
       margin-bottom: 2.4rem;
+    }
+
+    .interest-domain-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-outer);
+      box-shadow: var(--shadow-tactile), inset 0 1px 0 var(--border-inner);
+      border-radius: 8px;
+      padding: 0.95rem 1.05rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .interest-domain-card:hover {
+      background-color: var(--bg-card-hover);
+      border-color: var(--text-muted);
+    }
+
+    .domain-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .domain-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+    }
+
+    .interest-tag {
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--border-outer);
+      padding: 0.18rem 0.52rem;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      line-height: 1.35;
     }
 
     /* 论文卡片 (Works in Progress) */
@@ -479,6 +524,9 @@
       .profile-meta h1 {
         font-size: 1.75rem;
       }
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
       .exp-header {
         flex-direction: column;
         align-items: flex-start;
@@ -522,7 +570,7 @@
       
       <div class="profile-meta">
         <h1 id="heroName" class="font-serif">Tin I (Tim) Zhang</h1>
-        <div class="profile-role">Senior in International and Public Affairs <br> University of Macau</div>
+        <div class="profile-role">Aspiring China Studies Researcher <br> University of Macau</div>
         
         <div class="social-links">
           <!-- Email -->
@@ -552,8 +600,7 @@
     <!-- 个人简介段落 -->
     <div class="bio-text">
       <p>I am a fourth-year undergraduate student majoring in <a href="https://gpa.fss.um.edu.mo/bach_ipa_all_2026/" target="_blank" rel="noopener noreferrer">International and Public Affairs</a> at the <a href="https://www.um.edu.mo/" target="_blank" rel="noopener noreferrer">University of Macau</a>, where I am honored to be supported by the <b>Golden Lotus Full Scholarship</b>. From 2025 to 2027, I also serve as Head of Academics of the <a href="https://gpa.fss.um.edu.mo/youth-association-for-international-affairs-yaia/" target="_blank" rel="noopener noreferrer">Youth Association of International Affairs</a>.</p>
-
-      <p>My research lies at the intersection of <strong>International and Comparative Political Economy</strong>. Broadly, I am interested in how changes in the global economy and domestic politics reshape patterns of development and distribution, and what consequences arise from these processes.</p>
+      <p>My research interests broadly combine issues at the intersection of <strong>political economy</strong>, <strong>sociology</strong>, and <strong>history</strong>. Specifically, I seek to unpack the logic behind various controversies in Chinese society, using quantitative, computational, and mixed approaches.</p>
     </div>
 
     <!-- Research Section -->
@@ -562,7 +609,54 @@
 
       <!-- Subsection 1: Research Interests -->
       <h3 class="subsection-title">Research Interests</h3>
-      <p class="interests-text">International and Comparative Political Economy · Globalization and Domestic Politics · Political Economy of Development · Distributional Politics · Public Opinion · Political Institutions · China and East Asia</p>
+      <div class="interests-grid">
+        
+        <!-- Domain 1 -->
+        <div class="interest-domain-card">
+          <div class="domain-title">Disciplinary Foundations</div>
+          <div class="domain-tags">
+            <span class="interest-tag">China Studies</span>
+            <span class="interest-tag">Political Economy</span>
+            <span class="interest-tag">Political Sociology</span>
+            <span class="interest-tag">Cultural Sociology</span>
+            <span class="interest-tag">Contemporary History</span>
+          </div>
+        </div>
+
+        <!-- Domain 2 -->
+        <div class="interest-domain-card">
+          <div class="domain-title">Macro-Institutions</div>
+          <div class="domain-tags">
+            <span class="interest-tag">Chinese Communist Party (CCP)</span>
+            <span class="interest-tag">Market Transition</span>
+            <span class="interest-tag">State-Society Relations</span>
+            <span class="interest-tag">Governance &amp; Development</span>
+          </div>
+        </div>
+
+        <!-- Domain 3 -->
+        <div class="interest-domain-card">
+          <div class="domain-title">Subjective Dimensions</div>
+          <div class="domain-tags">
+            <span class="interest-tag">Political Culture</span>
+            <span class="interest-tag">Collective Memory</span>
+            <span class="interest-tag">Public Opinion</span>
+          </div>
+        </div>
+
+        <!-- Domain 4 -->
+        <div class="interest-domain-card">
+          <div class="domain-title">Structural Inequities</div>
+          <div class="domain-tags">
+            <span class="interest-tag">Social Stratification</span>
+            <span class="interest-tag">Labor</span>
+            <span class="interest-tag">Education</span>
+            <span class="interest-tag">Gender</span>
+            <span class="interest-tag">Family</span>
+          </div>
+        </div>
+
+      </div>
 
       <!-- Subsection 2: Works in Progress -->
       <h3 class="subsection-title">Works in Progress</h3>
