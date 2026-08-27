@@ -24,22 +24,16 @@
       --text-muted: #6b7280;
       --border-outer: #e3e7ed;
       --border-inner: rgba(255, 255, 255, 0.88);
-
-      --accent: #a1bfea;
-      --accent-hover: #789fd9;
-
+      --accent: #577db8;
+      --accent-hover: #426aa5;
       --tag-bg: #eef4fc;
-      --tag-text: #5f82b6;
-
+      --tag-text: #5278b0;
       --shadow-tactile: 0 1px 3px rgba(60, 50, 40, 0.05), 0 4px 12px rgba(60, 50, 40, 0.03);
       --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.04);
-
       --nav-bg: rgba(252, 252, 252, 0.82);
-
       --toggle-border: #dfe5ed;
       --toggle-bg: #f4f7fb;
       --toggle-shadow: inset 0 1px 2px rgba(0,0,0,0.05), 0 1px 0 rgba(255,255,255,0.8);
-
       --icon-color: #d9a441;
     }
 
@@ -52,22 +46,16 @@
       --text-muted: #98a1ad;
       --border-outer: #303844;
       --border-inner: rgba(255, 255, 255, 0.03);
-
       --accent: #a1bfea;
       --accent-hover: #bfd3f1;
-
       --tag-bg: #273241;
       --tag-text: #b7cef0;
-
       --shadow-tactile: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.25);
       --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.4);
-
       --nav-bg: rgba(23, 25, 29, 0.82);
-
       --toggle-border: #3a4452;
       --toggle-bg: #222832;
       --toggle-shadow: inset 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05);
-
       --icon-color: #d9a441;
     }
 
@@ -529,575 +517,218 @@
         align-items: flex-start;
         gap: 1.1rem;
       }
-
       .profile-avatar {
         width: 116px;
         height: 116px;
       }
-
       .profile-meta h1 {
         font-size: 1.75rem;
       }
-
       .interests-grid {
         grid-template-columns: 1fr;
       }
-
       .exp-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.1rem;
       }
-
       main {
         padding: 2rem 1rem 3.5rem;
       }
     }
   </style>
 </head>
-
 <body id="top">
 
   <!-- 顶栏 -->
   <header>
     <div class="nav-container">
-
-      <a
-        href="#top"
-        id="navName"
-        class="nav-name font-serif"
-        onclick="scrollToTop(event)"
-      >
-        Tim Zhang
-      </a>
-
+      <a href="#top" id="navName" class="nav-name font-serif" onclick="scrollToTop(event)">Tim Zhang</a>
       <div class="nav-right">
-
         <nav class="nav-links">
           <a href="#top" onclick="scrollToTop(event)">About</a>
           <a href="#research">Research</a>
           <a href="cv.pdf" target="_blank">CV</a>
         </nav>
-
+        
         <!-- 昼夜切换按钮 -->
-        <button
-          class="theme-toggle"
-          id="themeToggle"
-          aria-label="Toggle theme"
-        >
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <svg id="themeIcon" viewBox="0 0 24 24">
-            <path
-              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-            ></path>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
-
       </div>
     </div>
   </header>
 
-
   <!-- 主体 -->
   <main>
-
+    
     <!-- Profile 版头 -->
     <div class="profile-hero" id="profileHero">
-
-      <img
-        src="avatar.jpg"
-        alt="Tin I (Tim) Zhang"
-        class="profile-avatar"
-        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'138\' height=\'138\' fill=\'%23eef4fc\'><rect width=\'100%25\' height=\'100%25\'/></svg>'"
-      >
-
+      <img src="avatar.jpg" alt="Tin I (Tim) Zhang" class="profile-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'138\' height=\'138\' fill=\'%23eef4fc\'><rect width=\'100%25\' height=\'100%25\'/></svg>'">
+      
       <div class="profile-meta">
-
-        <h1 id="heroName" class="font-serif">
-          Tin I (Tim) Zhang
-        </h1>
-
-        <div class="profile-role">
-          Aspiring China Studies Researcher
-          <br>
-          University of Macau
-        </div>
-
+        <h1 id="heroName" class="font-serif">Tin I (Tim) Zhang</h1>
+        <div class="profile-role">Aspiring China Studies Researcher <br> University of Macau</div>
+        
         <div class="social-links">
-
           <!-- Email -->
-          <a
-            href="mailto:tim.tzhang@outlook.com"
-            class="link-pill"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-              />
-            </svg>
+          <a href="mailto:tim.tzhang@outlook.com" class="link-pill">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email
           </a>
-
           <!-- X/Twitter -->
-          <a
-            href="https://x.com/timtizhang"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-pill"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
+          <a href="https://x.com/timtizhang" target="_blank" rel="noopener noreferrer" class="link-pill">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             X/Twitter
           </a>
-
           <!-- LinkedIn -->
-          <a
-            href="https://www.linkedin.com/in/tin-i-zhang-tim"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-pill"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-              />
-            </svg>
+          <a href="https://www.linkedin.com/in/tin-i-zhang-tim" target="_blank" rel="noopener noreferrer" class="link-pill">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             LinkedIn
           </a>
-
           <!-- CV -->
-          <a
-            href="cv.pdf"
-            target="_blank"
-            class="link-pill"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
-              />
-            </svg>
+          <a href="cv.pdf" target="_blank" class="link-pill">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
             CV
           </a>
-
         </div>
       </div>
     </div>
-
 
     <!-- 个人简介段落 -->
     <div class="bio-text">
-
-      <p>
-        I am a fourth-year undergraduate student majoring in
-        <a
-          href="https://gpa.fss.um.edu.mo/bach_ipa_all_2026/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          International and Public Affairs
-        </a>
-        at the
-        <a
-          href="https://www.um.edu.mo/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          University of Macau
-        </a>,
-        where I am honored to be supported by the
-        <b>Golden Lotus Full Scholarship</b>.
-        From 2025 to 2027, I also serve as Head of Academics of the
-        <a
-          href="https://gpa.fss.um.edu.mo/youth-association-for-international-affairs-yaia/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Youth Association of International Affairs
-        </a>.
-      </p>
-
-      <p>
-        My research lies at the intersection of
-        <strong>Political Economy</strong>,
-        <strong>Political Sociology</strong>,
-        and
-        <strong>Historical Social Science</strong>.
-        I seek to understand how China’s ongoing transformations give rise
-        to the tensions and debates of contemporary Chinese society, and how
-        these transformations are themselves refracted through those tensions
-        and debates, drawing on quantitative, computational, and mixed methods.
-        In particular, I am currently exploring how young people in
-        post-pandemic China reinterpret the legacies of Mao Zedong and Deng
-        Xiaoping—and the political-economic trajectories associated with their
-        eras—in light of contemporary economic and social change, and how these
-        contested interpretations are negotiated in digital spaces and
-        crystallize into political beliefs and collective identities.
-      </p>
-
+      <p>I am a fourth-year undergraduate student majoring in <a href="https://gpa.fss.um.edu.mo/bach_ipa_all_2026/" target="_blank" rel="noopener noreferrer">International and Public Affairs</a> at the <a href="https://www.um.edu.mo/" target="_blank" rel="noopener noreferrer">University of Macau</a>, where I am honored to be supported by the <b>Golden Lotus Full Scholarship</b>. From 2025 to 2027, I also serve as Head of Academics of the <a href="https://gpa.fss.um.edu.mo/youth-association-for-international-affairs-yaia/" target="_blank" rel="noopener noreferrer">Youth Association of International Affairs</a>.</p>
+      <p>My research lies at the intersection of <strong>Political Economy</strong>, <strong>Political Sociology</strong>, and <strong>Historical Social Science</strong>. I seek to understand how China’s ongoing transformations give rise to the tensions and debates of contemporary Chinese society, and how these transformations are themselves refracted through those tensions and debates, drawing on quantitative, computational, and mixed methods. In particular, I am currently exploring how young people in post-pandemic China reinterpret the legacies of Mao Zedong and Deng Xiaoping—and the political-economic trajectories associated with their eras—in light of contemporary economic and social change, and how these contested interpretations are negotiated in digital spaces and crystallize into political beliefs and collective identities.</p>
     </div>
-
 
     <!-- Research Section -->
     <section id="research">
-
-      <h2 class="section-title font-serif">
-        Research
-      </h2>
-
+      <h2 class="section-title font-serif">Research</h2>
 
       <!-- Subsection 1: Research Interests -->
-      <h3 class="subsection-title">
-        Research Interests
-      </h3>
-
+      <h3 class="subsection-title">Research Interests</h3>
       <div class="interests-grid">
-
+        
         <!-- Domain 1 -->
         <div class="interest-domain-card">
-
-          <div class="domain-title">
-            Fields &amp; Approaches
-          </div>
-
+          <div class="domain-title">Fields &amp; Approaches</div>
           <div class="domain-tags">
-            <span class="interest-tag">
-              Contemporary China Studies
-            </span>
-            <span class="interest-tag">
-              Political Economy
-            </span>
-            <span class="interest-tag">
-              Political Sociology
-            </span>
-            <span class="interest-tag">
-              Historical Social Science
-            </span>
+            <span class="interest-tag">Contemporary China Studies</span>
+            <span class="interest-tag">Political Economy</span>
+            <span class="interest-tag">Political Sociology</span>
+            <span class="interest-tag">Historical Social Science</span>
           </div>
-
         </div>
-
 
         <!-- Domain 2 -->
         <div class="interest-domain-card">
-
-          <div class="domain-title">
-            Institutions &amp; Political Economy
-          </div>
-
+          <div class="domain-title">Institutions &amp; Political Economy</div>
           <div class="domain-tags">
-            <span class="interest-tag">
-              State–Market Relations
-            </span>
-            <span class="interest-tag">
-              State–Society Relations
-            </span>
-            <span class="interest-tag">
-              Market Transition
-            </span>
-            <span class="interest-tag">
-              Development &amp; Distribution
-            </span>
+            <span class="interest-tag">State–Market Relations</span>
+            <span class="interest-tag">State–Society Relations</span>
+            <span class="interest-tag">Market Transition</span>
+            <span class="interest-tag">Development &amp; Distribution</span>
           </div>
-
         </div>
-
 
         <!-- Domain 3 -->
         <div class="interest-domain-card">
-
-          <div class="domain-title">
-            Social Structure &amp; Inequality
-          </div>
-
+          <div class="domain-title">Social Structure &amp; Inequality</div>
           <div class="domain-tags">
-            <span class="interest-tag">
-              Social Stratification
-            </span>
-            <span class="interest-tag">
-              Labor &amp; Employment
-            </span>
-            <span class="interest-tag">
-              Education &amp; Social Mobility
-            </span>
-            <span class="interest-tag">
-              Gender &amp; Family
-            </span>
+            <span class="interest-tag">Social Stratification</span>
+            <span class="interest-tag">Labor &amp; Employment</span>
+            <span class="interest-tag">Education &amp; Social Mobility</span>
+            <span class="interest-tag">Gender &amp; Family</span>
           </div>
-
         </div>
-
 
         <!-- Domain 4 -->
         <div class="interest-domain-card">
-
-          <div class="domain-title">
-            Political Culture, Ideas &amp; Identity
-          </div>
-
+          <div class="domain-title">Political Culture, Ideas &amp; Identity</div>
           <div class="domain-tags">
-            <span class="interest-tag">
-              Ideology &amp; Belief Formation
-            </span>
-            <span class="interest-tag">
-              Public Opinion
-            </span>
-            <span class="interest-tag">
-              Collective Identity
-            </span>
-            <span class="interest-tag">
-              Collective Memory
-            </span>
+            <span class="interest-tag">Ideology &amp; Belief Formation</span>
+            <span class="interest-tag">Public Opinion</span>
+            <span class="interest-tag">Collective Identity</span>
+            <span class="interest-tag">Collective Memory</span>
           </div>
-
         </div>
 
       </div>
 
-
       <!-- Subsection 2: Works in Progress -->
-      <h3 class="subsection-title">
-        Works in Progress
-      </h3>
-
+      <h3 class="subsection-title">Works in Progress</h3>
       <div class="works-list">
-
-
+        
         <!-- Paper 1 -->
         <article class="paper-card">
-
-          <div class="paper-title">
-            When Problems Abroad Hit Home:
-            Anti-Elite Frames and Domestic Political Beliefs in China
-          </div>
-
-          <div class="paper-authors">
-            Independent Research
-          </div>
-
+          <div class="paper-title">When Problems Abroad Hit Home: Anti-Elite Frames and Domestic Political Beliefs in China</div>
+          <div class="paper-authors">Independent Research</div>
           <details class="paper-abstract">
-
-            <summary>
-              Abstract
-            </summary>
-
+            <summary>Abstract</summary>
             <div class="abstract-body">
-              Authoritarian governments often amplify failures abroad,
-              expecting unfavorable comparisons to bolster domestic legitimacy.
-              Yet narratives about foreign problems may carry causal claims
-              that travel beyond their original targets. This ongoing project
-              develops a theory of diagnostic portability: when negative news
-              about a foreign country attributes hardship to elite capture
-              rather than administrative or market failure, audiences may
-              apply the same diagnosis to their own society. The argument will
-              be tested through a preregistered three-arm survey experiment in
-              China. The core comparison holds the foreign event, factual
-              content, source, and negative valence constant while varying its
-              causal frame. The study examines whether anti-elite framing can
-              simultaneously worsen evaluations of the foreign target and
-              strengthen beliefs that domestic institutions favor privileged
-              groups, whether it attenuates the comparative-legitimation effect
-              of foreign bad news, and whether these effects are stronger among
-              economically insecure respondents. The project links
-              authoritarian information management to the cross-border movement
-              of anti-elite ideas and identifies a potential limit of
-              comparative propaganda: governments may shape exposure more
-              readily than interpretation.
+              Authoritarian governments often amplify failures abroad, expecting unfavorable comparisons to bolster domestic legitimacy. Yet narratives about foreign problems may carry causal claims that travel beyond their original targets. This ongoing project develops a theory of diagnostic portability: when negative news about a foreign country attributes hardship to elite capture rather than administrative or market failure, audiences may apply the same diagnosis to their own society. The argument will be tested through a preregistered three-arm survey experiment in China. The core comparison holds the foreign event, factual content, source, and negative valence constant while varying its causal frame. The study examines whether anti-elite framing can simultaneously worsen evaluations of the foreign target and strengthen beliefs that domestic institutions favor privileged groups, whether it attenuates the comparative-legitimation effect of foreign bad news, and whether these effects are stronger among economically insecure respondents. The project links authoritarian information management to the cross-border movement of anti-elite ideas and identifies a potential limit of comparative propaganda: governments may shape exposure more readily than interpretation.
             </div>
-
           </details>
-
         </article>
-
 
         <!-- Paper 2 -->
         <article class="paper-card">
-
-          <div class="paper-title">
-            Tracking Bill Changes in China’s Two-phase Lawmaking Process
-          </div>
-
-          <div class="paper-authors">
-            With
-            <a
-              href="https://jiyingjiang.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Jiying Jiang
-            </a>
-          </div>
-
+          <div class="paper-title">Tracking Bill Changes in China’s Two-phase Lawmaking Process</div>
+          <div class="paper-authors">With <a href="https://jiyingjiang.com/" target="_blank" rel="noopener noreferrer">Jiying Jiang</a></div>
           <details class="paper-abstract">
-
-            <summary>
-              Abstract
-            </summary>
-
+            <summary>Abstract</summary>
             <div class="abstract-body">
-              Why do some bills bypass the public consultation stage?
-              How do legal provisions change under the two-phase legislative
-              procedure? What roles do different issue areas and stakeholders
-              play in this process? In this co-authored, ongoing project, we
-              construct a dataset covering 486 laws promulgated by the 11th
-              through 14th National People’s Congresses of China, 381 public
-              consultation records, and the draft texts at each stage of the
-              two-phase legislative process for 98 of these laws, drawing on an
-              efficient, AI-assisted data workflow that I develop. Using
-              automated text analysis in R, we currently employ cosine
-              similarity, Jaro–Winkler string distance, and related methods to
-              match provisions and trace textual changes at the paragraph
-              (kuan) level.
+              Why do some bills bypass the public consultation stage? How do legal provisions change under the two-phase legislative procedure? What roles do different issue areas and stakeholders play in this process? In this co-authored, ongoing project, we construct a dataset covering 486 laws promulgated by the 11th through 14th National People’s Congresses of China, 381 public consultation records, and the draft texts at each stage of the two-phase legislative process for 98 of these laws, drawing on an efficient, AI-assisted data workflow that I develop. Using automated text analysis in R, we currently employ cosine similarity, Jaro–Winkler string distance, and related methods to match provisions and trace textual changes at the paragraph (kuan) level.
             </div>
-
           </details>
-
         </article>
 
       </div>
 
-
       <!-- Subsection 3: Research Experience -->
-      <h3 class="subsection-title">
-        Research Experience
-      </h3>
-
+      <h3 class="subsection-title">Research Experience</h3>
       <div class="experience-list">
-
-
+        
         <!-- Experience 1 -->
         <div class="exp-item">
-
           <div class="exp-header">
-            <span class="exp-role">
-              Public Affairs and Political Economy Research Workshop (PAPER)
-            </span>
-
-            <span class="exp-date">
-              Aug 2025 – Present
-            </span>
+            <span class="exp-role">Public Affairs and Political Economy Research Workshop (PAPER)</span>
+            <span class="exp-date">Aug 2025 – Present</span>
           </div>
-
-          <div class="exp-focus">
-            Empirical Social Science, Research Design, and Advanced Methodology
-          </div>
-
-          <div class="exp-meta">
-            Coordinator:
-            <a
-              href="https://www.hkmu.edu.hk/ss/about/people/faculty-2/dr-li-tao/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prof. Tao Li
-            </a>
-            · Link to
-            <a
-              href="https://sites.google.com/view/paper-workshop"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PAPER
-            </a>
-          </div>
-
+          <div class="exp-focus">Empirical Social Science, Research Design, and Advanced Methodology</div>
+          <div class="exp-meta">Coordinator: <a href="https://www.hkmu.edu.hk/ss/about/people/faculty-2/dr-li-tao/" target="_blank" rel="noopener noreferrer">Prof. Tao Li</a> · Link to <a href="https://sites.google.com/view/paper-workshop" target="_blank" rel="noopener noreferrer">PAPER</a></div>
         </div>
-
 
         <!-- Experience 2 -->
         <div class="exp-item">
-
           <div class="exp-header">
-            <span class="exp-role">
-              Research Assistant
-            </span>
-
-            <span class="exp-date">
-              Aug 2024 – Present
-            </span>
+            <span class="exp-role">Research Assistant</span>
+            <span class="exp-date">Aug 2024 – Present</span>
           </div>
-
-          <div class="exp-focus">
-            Computational Social Science, Policy Process, and Lawmaking in China
-          </div>
-
-          <div class="exp-meta">
-            Supervisor:
-            <a
-              href="https://jiyingjiang.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prof. Jiying Jiang
-            </a>
-            · University of Macau
-          </div>
-
+          <div class="exp-focus">Computational Social Science, Policy Process, and Lawmaking in China</div>
+          <div class="exp-meta">Supervisor: <a href="https://jiyingjiang.com/" target="_blank" rel="noopener noreferrer">Prof. Jiying Jiang</a> · University of Macau</div>
         </div>
-
 
         <!-- Experience 3 -->
         <div class="exp-item">
-
           <div class="exp-header">
-            <span class="exp-role">
-              Summer Research Training and Workshop
-            </span>
-
-            <span class="exp-date">
-              Jun 2026 – Jul 2026
-            </span>
+            <span class="exp-role">Summer Research Training and Workshop</span>
+            <span class="exp-date">Jun 2026 – Jul 2026</span>
           </div>
-
-          <div class="exp-focus">
-            Social Network Analysis (SNA) and Local Governance in China
-          </div>
-
-          <div class="exp-meta">
-            Supervisor:
-            <a
-              href="https://shuwenzzz.github.io/PersonalWebsite/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prof. Shuwen Zhang
-            </a>
-            · University of Macau
-          </div>
-
+          <div class="exp-focus">Social Network Analysis (SNA) and Local Governance in China</div>
+          <div class="exp-meta">Supervisor: <a href="https://shuwenzzz.github.io/PersonalWebsite/" target="_blank" rel="noopener noreferrer">Prof. Shuwen Zhang</a> · University of Macau</div>
         </div>
-
 
         <!-- Experience 4 -->
         <div class="exp-item">
-
           <div class="exp-header">
-            <span class="exp-role">
-              Undergraduate Summer Researcher
-            </span>
-
-            <span class="exp-date">
-              May 2025 – Aug 2025
-            </span>
+            <span class="exp-role">Undergraduate Summer Researcher</span>
+            <span class="exp-date">May 2025 – Aug 2025</span>
           </div>
-
-          <div class="exp-focus">
-            Chinese Legislative Texts and Procedural Transparency Dataset
-          </div>
-
-          <div class="exp-meta">
-            PI:
-            <a
-              href="https://jiyingjiang.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prof. Jiying Jiang
-            </a>
-            · University of Macau
-          </div>
-
+          <div class="exp-focus">Chinese Legislative Texts and Procedural Transparency Dataset</div>
+          <div class="exp-meta">PI: <a href="https://jiyingjiang.com/" target="_blank" rel="noopener noreferrer">Prof. Jiying Jiang</a> · University of Macau</div>
         </div>
 
       </div>
@@ -1106,127 +737,59 @@
 
   </main>
 
-
   <!-- 脚本控制逻辑 -->
   <script>
-
     // 1. 回到顶部
     function scrollToTop(e) {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-
     // 2. 顶栏名字随滚动动态淡入淡出 (IntersectionObserver)
-    const heroName =
-      document.getElementById('heroName');
+    const heroName = document.getElementById('heroName');
+    const navName = document.getElementById('navName');
 
-    const navName =
-      document.getElementById('navName');
-
-
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-              navName.classList.remove('visible');
-            } else {
-              navName.classList.add('visible');
-            }
-
-          });
-
-        },
-        {
-          rootMargin: "-48px 0px 0px 0px",
-          threshold: 0
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navName.classList.remove('visible');
+        } else {
+          navName.classList.add('visible');
         }
-      );
-
+      });
+    }, {
+      rootMargin: "-48px 0px 0px 0px",
+      threshold: 0
+    });
 
     if (heroName) {
       observer.observe(heroName);
     }
 
-
     // 3. 昼夜模式切换
-    const toggleBtn =
-      document.getElementById('themeToggle');
+    const toggleBtn = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const root = document.documentElement;
 
-    const icon =
-      document.getElementById('themeIcon');
-
-    const root =
-      document.documentElement;
-
-
-    const moonSvg =
-      `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-
-
+    const moonSvg = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
     const sunSvg = `
       <circle cx="12" cy="12" r="4"></circle>
-      <path
-        d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-        stroke-width="2"
-        stroke-linecap="round">
-      </path>
+      <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" stroke-width="2" stroke-linecap="round"></path>
     `;
 
-
-    const savedTheme =
-      localStorage.getItem('theme') ||
-      (
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light'
-      );
-
-
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     applyTheme(savedTheme);
 
-
     function applyTheme(theme) {
-
-      root.setAttribute(
-        'data-theme',
-        theme
-      );
-
-      icon.innerHTML =
-        theme === 'dark'
-          ? sunSvg
-          : moonSvg;
-
-      localStorage.setItem(
-        'theme',
-        theme
-      );
+      root.setAttribute('data-theme', theme);
+      icon.innerHTML = theme === 'dark' ? sunSvg : moonSvg;
+      localStorage.setItem('theme', theme);
     }
 
-
-    toggleBtn.addEventListener(
-      'click',
-      () => {
-
-        const currentTheme =
-          root.getAttribute('data-theme');
-
-        applyTheme(
-          currentTheme === 'dark'
-            ? 'light'
-            : 'dark'
-        );
-
-      }
-    );
-
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
   </script>
 
 </body>
